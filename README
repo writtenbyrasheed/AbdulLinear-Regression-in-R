@@ -1,0 +1,145 @@
+# Linear Regression Internship Project
+
+
+### Setup: INCD V VECI
+
+1. Sign up for an account on Posit Cloud
+2. Create a Workspace and name it workspace2
+3. Create a project and name it p1
+4. Reach the R studio console
+5. Start your work at the terminal
+
+### Linear Regression:
+Linear regression on a dataset called Advertising.csv.
+
+Download from the reference:https://www.kaggle.com/code/natigmamishov/linear-regression-from-scratch-on-advertising-data/input
+
+
+
+Upload from the Downloaded Advertising.scv file through the upload table under files.
+
+
+Type  file through the upload tab under Files
+
+
+Upload the downloaded Advertising.csv file through the upload table under files.
+
+
+###Import data into R STUDIO
+Type `advert <- read.csv("/cloud/project/Advertising.csv") into the console
+
+
+## examine the top few rows of the data
+```
+head(advert)
+```
+
+
+
+#View the data and generate the summary
+```
+
+
+View(advert)
+summary(advert)
+```
+https://github.com/writtenbyrasheed/AbdulLinear-Regression-in-R/blob/main/images/summary
+
+##Install packages ISLR, MASS, ggplot.multistats and import library ggplot2
+
+```
+install.packages("ISLR")
+install.packages("MASS")
+install.packages("ggplot2")
+library(ggplot2)
+```
+--------------------
+###Examining the relationship between the TV budget and Sales using scatterplots
+
+```
+ggplot(advert, aes(TV, Sales)) + geom_smooth(method="lm") +
+geom_point() + ggtitle("linear fit")
+```
+https://github.com/writtenbyrasheed/AbdulLinear-Regression-in-R/blob/main/images/ScatterplotTvBudgetSales.png
+
+## Use lm() function to create (and estimates) a linear model with the TV budget data and sales data
+
+```
+lm.TV = lm(Sales~TV, data=advert)
+```
+
+
+## Create a dataframe for new values of TV budgets to be able to use predict( function)
+
+```
+TV_budget <- data.frame(TV = c(11,11,12,12,12,12,13,13,13,13))
+```
+##predict the Sales
+
+```
+predict(lm.TV, newdata = TV_budget)
+```
+https://github.com/writtenbyrasheed/AbdulLinear-Regression-in-R/blob/main/images/salespredictions
+
+-----------------------
+
+###Examining the relationship between the Newspaper budget and Sales using scatterplots
+
+```
+ggplot(advert, aes(Newspaper, Sales)) + geom_smooth(method="lm") +
+geom_point() + ggtitle("linear fit")
+```
+https://github.com/writtenbyrasheed/AbdulLinear-Regression-in-R/blob/main/images/ScatterplotNewspaperBudgetSales.png
+
+## Use lm() function to create (and estimates) a linear model with the Newspaper budget data and sales data
+
+```
+lm.Newspaper = lm(Sales~Newspaper, data=advert)
+```
+
+
+## Create a dataframe for new values of Newspaper budgets to be able to use predict( function)
+
+```
+Newspaper_budget <- data.frame(Newspaper = c(11,11,12,12,12,12,13,13,13,13))
+```
+##predict the Sales
+
+```
+predict(lm.Newspaper, newdata = Newspaper_budget)
+```
+https://github.com/writtenbyrasheed/AbdulLinear-Regression-in-R/blob/main/images/Newspapersalesprediction
+
+-----------------------
+
+
+###Examining the relationship between the Radio budget and Sales using scatterplots
+
+```
+ggplot(advert, aes(Radio, Sales)) + geom_smooth(method="lm") +
+geom_point() + ggtitle("linear fit")
+```
+https://github.com/writtenbyrasheed/AbdulLinear-Regression-in-R/blob/main/images/ScatterplotRadioBudgetSales.png
+
+## Use lm() function to create (and estimates) a linear model with the Radio budget data and sales data
+
+```
+lm.Radio = lm(Sales~Radio, data=advert)
+```
+
+
+## Create a dataframe for new values of Radio budgets to be able to use predict( function)
+
+```
+Radio_budget <- data.frame(Radio = c(11,11,12,12,12,12,13,13,13,13))
+```
+##predict the Sales
+
+```
+predict(lm.Radio, newdata = Radio_budget)
+```
+https://github.com/writtenbyrasheed/AbdulLinear-Regression-in-R/blob/main/images/Radiosalesprediction
+
+------------
+
+
